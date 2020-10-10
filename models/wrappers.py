@@ -18,8 +18,6 @@ from types import SimpleNamespace
 from utils import download_ckpt
 from config import Config
 from netdissect import proggan, zdataset
-from . import biggan
-from . import stylegan
 from . import stylegan2
 from abc import abstractmethod, ABC as AbstractBaseClass
 from functools import singledispatch
@@ -105,6 +103,7 @@ class StyleGAN2(BaseModel):
         # Image widths
         configs = {
             # Converted NVIDIA official
+            'TODNE': 256,
             'ffhq': 1024,
             'car': 512,
             'cat': 256,
@@ -136,7 +135,7 @@ class StyleGAN2(BaseModel):
 
     # URLs created with https://sites.google.com/site/gdocs2direct/
     def download_checkpoint(self, outfile):
-        checkpoints = {
+        checkpoints = { 'TODNE': 'https://drive.google.com/uc?export=download&id=1_0RVyr5Fod5XPWEXHYqLJjnS1YopstN2,
             'horse': 'https://drive.google.com/uc?export=download&id=18SkqWAkgt0fIwDEf2pqeaenNi4OoCo-0',
             'ffhq': 'https://drive.google.com/uc?export=download&id=1FJRwzAkV-XWbxgTwxEmEACvuqF5DsBiV',
             'church': 'https://drive.google.com/uc?export=download&id=1HFM694112b_im01JT7wop0faftw9ty5g',
